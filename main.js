@@ -1,66 +1,67 @@
 // Step 1a - Select and store the gameboard element
-
+let gameboard = document.querySelector("#gameboard");
 // Step 1b - Select and store the score element
-
+let score = document.querySelector("#score");
 // Step 1c - Select and store the cards element
-
+let cards = document.querySelector("#cards");
 // Step 1d - Select and store the message element
- 
+let message = document.querySelector("#message");
 
 // Step 2 - Create an array of cards
 const cardValues = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
 let deck = [];
 
 // Step 2a - Create a function to shuffle the deck
-... shuffleDeck () {
+function shuffleDeck () {
   // Step 2b - Create a placeholder array
-  ... tmp ...
+  let tmp = []
 
   // Step 2c - Iterate through card values 4 times
-  ... (...) {
+  for (let i = 0; i<= cardValues.length*4; i++) {
     // Step 2d - Using a conditional loop
-    ... (cardValues... != 0) {
+    if (tmp[i] != 0) {
       // Step 2e - Select a random card from the array
-      ... randomCard = Math...(Math...() * ...);
+      let randomCard = Math.floor(Math.random() * tmp.length);
 
       // Step 2f - Add the card to the deck array
+      deck.push(randomCard);
     }
   }
 }
 
 // Step 2g - Call the shuffleDeck function
-
+shuffleDeck();
 
 // Step 3a - Create an array to store 2 players
-... players ...;
+let players = ['player1', 'player2'];
 
 // Step 3b - Create a variable to store the current player
-... currentPlayer ...;
+let currentPlayer ...;
 
 // Step 3c - Create a variable to store the first selected card
-... currentCard ...;
+let currentCard ...;
 
 
 // Step 4 - Iterate through the deck and bind a click event to each one
-... {
+for (let i = 0; i <= deck.length; i++) {
   // Step 4a - Create a new div element to be a card
-  ... cardEle = ...;
+  let cardEle = document.createElement("div");
 
   // Step 3b - Add a 'card' class to the class list on the new div element
-  ...('card');
+  cardEle.classList.add('card');
 
   // Step 3c - Add a data value to the card with the card's value in it
-  ...dataset.value = ...;
+  cardEle.dataset.value = currentCard;
 
   // Step 3c - Bind the cardSelected function
   // to the click event on the cardEle
-  ...
+  cardEle.onclick = cardSelected;
 }
 
 
 // Step 5 - Create a function to store the logic
 // for when a card is selected
-... cardSelected (...) {
+function cardSelected (currentCard) {
   // Step 5a - Check if there is already a card selected
   ... {
     // Step 6 - Compare the cards
