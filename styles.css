@@ -1,21 +1,21 @@
 /* Step 1 - Add a nice background */
 body {
-
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
 /* Step 2 - Add a nice card style */
 .card {
-
+    background-color: azure;
 }
 
 /* Step 3 - Add a nice hover effect */
 .card:hover {
-
+    transform: scale(1.5);
 }
 
 /* Step 4 (+4 points) - Write a style for a flipped card */
 .flipped {
-
+    transform: rotateY(180deg);
 }
 
 /* Step 5 - Add a nice style to the message element */

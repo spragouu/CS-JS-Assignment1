@@ -36,10 +36,10 @@ shuffleDeck();
 let players = ['player1', 'player2'];
 
 // Step 3b - Create a variable to store the current player
-let currentPlayer ...;
+let currentPlayer = players[0];
 
 // Step 3c - Create a variable to store the first selected card
-let currentCard ...;
+let currentCard = cardValues[0];
 
 
 // Step 4 - Iterate through the deck and bind a click event to each one
@@ -63,61 +63,67 @@ for (let i = 0; i <= deck.length; i++) {
 // for when a card is selected
 function cardSelected (currentCard) {
   // Step 5a - Check if there is already a card selected
-  ... {
+  if(cardSelected) {
     // Step 6 - Compare the cards
-    ... {
+    if(currentCard === cardSelected) {
       // Step 6b - Add a class to the 2 card elements
       // flipping them over
-      ...('flipped');
+      currentCard.classList.add('flipped');
 
       // Step 6c - Add a point to the score for this player
-      ... += 1;
+      currentPlayer.score += 1;
 
       // Step 6d - Tell the player to go again
       // (use string interpolation to show which player you're addressing)
-      ... = `Congratulations! ..., please go again!`;
-    } ... {
+      message.textContent = `Congratulations! ${currentPlayer}, please go again!`;
+    } else {
       // Step 6e - Provide a fail message to the player
-      ... = "Oh, so sorry!!! But yer' not psychic!";
+      message.textContent = "Oh, so sorry!!! But yer' not psychic!";
 
       // Step 6f - Using a ternary, change players
-      ... 1 ... 0;
+      currentPlayer = players[0] ? currentPlayer = players[1] : currentPlayer= players[0]; 
 
       // Step 6g - Concatenate a message to the message element
       // advising player 2 that it's their turn now
       // (use string interpolation to show which player you're addressing)
-      ... = `..., your turn!`;
+      message.textContent = `${currentPlayer}, your turn!`;
     }
-  } ... {
+  } else {
     // Step 5b - Assign the card to currentCard
-    ...
+    currentCard = cardSelected;
 
     // Step 5c - Tell the player to select another card
     // (use string interpolation to show which player you're addressing)
-    ... = `..., please select another card`;
+    message.textContent = `${currentPlayer}, please select another card`;
   }
 
   // Step 7 - Check if the board is full
-  ... {
+  if(gameboard) {
     // Step 7a - Check if one of the players has won
-    ... {
+    if(currentPlayer.score >= 24) {
       // Step 7b - Tell the player they've won
       // (use string interpolation to show which player you're addressing)
-      ... = `..., you won!!! Congratulations!`;
-    } ... {
+      message.textContent = `${currentPlayer}, you won!!! Congratulations!`;
+    } else {
       // Step 7c - Tell the players that the game has ended in a tie
-      ... = "The game was a tie! Nice try!";
+      message.textContent = "The game was a tie! Nice try!";
     }
   }
 }
 
 // Take it further - Reset the board allowing the user to play again (Worth 20% of the final grade)
-/*
-  Step 1 - You will need a reset button in index.html
-  Step 2 - You will need to bind an event listener
-           that detects the click and executes a function
-  Step 3 - You will need to reset all the pieces on the
-           board
-  Step 4 - You will need to reset the messages
-  Step 5 - You will need to reset the players
-*/
+
+  //Step 1 - You will need a reset button in index.html
+  resetButton = document.querySelector('#resetButton');
+  //Step 2 - You will need to bind an event listener that detects the click and executes a function
+  resetButton.addEventListener('click', function(event){
+    deck = [];
+    currentCard = [];
+    message.textContent="";
+    score.textContent="";
+    currentPlayer=0;
+
+  });
+  //Step 3 - You will need to reset all the pieces on the board
+  //Step 4 - You will need to reset the messages
+  //Step 5 - You will need to reset the players
