@@ -51,13 +51,13 @@ for (let i = 0; i < deck.length; i++) {
   // Step 4a - Create a new div element to be a card
   let cardEle = document.createElement("div");
 
-  // Step 3b - Add a 'card' class to the class list on the new div element
+  // Step 4b - Add a 'card' class to the class list on the new div element
   cardEle.classList.add('card');
 
-  // Step 3c - Add a data value to the card with the card's value in it
+  // Step 4c - Add a data value to the card with the card's value in it
   cardEle.dataset.value = i;
 
-  // Step 3c - Bind the cardSelected function
+  // Step 4d - Bind the cardSelected function
   // to the click event on the cardEle
   cardEle.addEventListener('click', cardSelected);
 }
@@ -65,17 +65,19 @@ for (let i = 0; i < deck.length; i++) {
 
 // Step 5 - Create a function to store the logic
 // for when a card is selected
-function cardSelected (currentCard) {
+function cardSelected (event) {
   // Step 5a - Check if there is already a card selected
-  if(cardSelected) {
+  if(currentCard != cardValues[0]) {
     // Step 6 - Compare the cards
     if(currentCard === cardSelected) {
       // Step 6b - Add a class to the 2 card elements
       // flipping them over
       currentCard.classList.add('flipped');
+      event.target.classList.add('flipped');
 
       // Step 6c - Add a point to the score for this player
-      currentPlayer.score += 1;
+      players[currentPlayer] += 1;
+      score.textContent = `Player1 Score: ${players[0]} Player2 Score: ${players[1]}`;
 
       // Step 6d - Tell the player to go again
       // (use string interpolation to show which player you're addressing)
@@ -85,7 +87,7 @@ function cardSelected (currentCard) {
       message.textContent = "Oh, so sorry!!! But yer' not psychic!";
 
       // Step 6f - Using a ternary, change players
-      currentPlayer = players[1] ? currentPlayer = players[0] : currentPlayer= players[1]; 
+      currentPlayer = currentPlayer === 0 ? 1 : 0; 
 
       // Step 6g - Concatenate a message to the message element
       // advising player 2 that it's their turn now
@@ -94,7 +96,7 @@ function cardSelected (currentCard) {
     }
   } else {
     // Step 5b - Assign the card to currentCard
-    currentCard = cardSelected;
+    currentCard = event.target;
 
     // Step 5c - Tell the player to select another card
     // (use string interpolation to show which player you're addressing)
