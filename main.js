@@ -17,15 +17,17 @@ function shuffleDeck () {
   let tmp = []
 
   // Step 2c - Iterate through card values 4 times
-  for (let i = 0; i<= cardValues.length*4; i++) {
-    // Step 2d - Using a conditional loop
-    if (tmp[i] != 0) {
-      // Step 2e - Select a random card from the array
-      let randomCard = Math.floor(Math.random() * tmp.length);
-
-      // Step 2f - Add the card to the deck array
-      deck.push(randomCard);
+  for (let i = 0; i<4; i++) {
+    for (let cardValue of cardValues) {
+      tmp.push(cardValue)
     }
+  }
+  // Step 2d - Using a conditional loop
+  for(let o = 0; o < tmp.length; o++){
+    // Step 2e - Select a random card from the array
+    let randomCard = Math.floor(Math.random() * tmp.length);
+    // Step 2f - Add the card to the deck array
+    deck.push(randomCard);
   }
 }
 
@@ -33,7 +35,9 @@ function shuffleDeck () {
 shuffleDeck();
 
 // Step 3a - Create an array to store 2 players
-let players = ['player1', 'player2'];
+let player1 = 0;
+let player2 = 0;
+let players = [player1, player2];
 
 // Step 3b - Create a variable to store the current player
 let currentPlayer = players[1];
