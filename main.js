@@ -36,10 +36,10 @@ shuffleDeck();
 let players = ['player1', 'player2'];
 
 // Step 3b - Create a variable to store the current player
-let currentPlayer = players[0];
+let currentPlayer = players[1];
 
 // Step 3c - Create a variable to store the first selected card
-let currentCard = cardValues[0];
+let currentCard = cardValues[1];
 
 
 // Step 4 - Iterate through the deck and bind a click event to each one
@@ -81,7 +81,7 @@ function cardSelected (currentCard) {
       message.textContent = "Oh, so sorry!!! But yer' not psychic!";
 
       // Step 6f - Using a ternary, change players
-      currentPlayer = players[0] ? currentPlayer = players[1] : currentPlayer= players[0]; 
+      currentPlayer = players[1] ? currentPlayer = players[0] : currentPlayer= players[1]; 
 
       // Step 6g - Concatenate a message to the message element
       // advising player 2 that it's their turn now
@@ -116,6 +116,9 @@ function cardSelected (currentCard) {
   //Step 1 - You will need a reset button in index.html
   resetButton = document.querySelector('#resetButton');
   //Step 2 - You will need to bind an event listener that detects the click and executes a function
+  //Step 3 - You will need to reset all the pieces on the board
+  //Step 4 - You will need to reset the messages
+  //Step 5 - You will need to reset the players
   resetButton.addEventListener('click', function(event){
     deck = [];
     currentCard = [];
@@ -124,6 +127,3 @@ function cardSelected (currentCard) {
     currentPlayer=0;
 
   });
-  //Step 3 - You will need to reset all the pieces on the board
-  //Step 4 - You will need to reset the messages
-  //Step 5 - You will need to reset the players
