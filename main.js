@@ -40,14 +40,14 @@ let player2 = 0;
 let players = [player1, player2];
 
 // Step 3b - Create a variable to store the current player
-let currentPlayer = players[1];
+let currentPlayer = players[0];
 
 // Step 3c - Create a variable to store the first selected card
-let currentCard = cardValues[1];
+let currentCard = cardValues[0];
 
 
 // Step 4 - Iterate through the deck and bind a click event to each one
-for (let i = 0; i <= deck.length; i++) {
+for (let i = 0; i < deck.length; i++) {
   // Step 4a - Create a new div element to be a card
   let cardEle = document.createElement("div");
 
@@ -55,11 +55,11 @@ for (let i = 0; i <= deck.length; i++) {
   cardEle.classList.add('card');
 
   // Step 3c - Add a data value to the card with the card's value in it
-  cardEle.dataset.value = currentCard;
+  cardEle.dataset.value = i;
 
   // Step 3c - Bind the cardSelected function
   // to the click event on the cardEle
-  cardEle.onclick = cardSelected;
+  cardEle.addEventListener('click', cardSelected);
 }
 
 
