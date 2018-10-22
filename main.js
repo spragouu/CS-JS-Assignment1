@@ -106,10 +106,15 @@ function cardSelected (event) {
   // Step 7 - Check if the board is full
   if(gameboard) {
     // Step 7a - Check if one of the players has won
-    if(currentPlayer.score >= 24) {
+    if(player1.score != player2.score) {
       // Step 7b - Tell the player they've won
       // (use string interpolation to show which player you're addressing)
-      message.textContent = `${currentPlayer}, you won!!! Congratulations!`;
+      if(player1.score > player2.score){
+        message.textContent = `${player1}, you won!!! Congratulations!`;
+      }else{
+        message.textContent = `${player2}, you won!!! Congratulations!`;
+      }
+      
     } else {
       // Step 7c - Tell the players that the game has ended in a tie
       message.textContent = "The game was a tie! Nice try!";
