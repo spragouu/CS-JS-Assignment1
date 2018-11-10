@@ -1,32 +1,65 @@
 /* Step 1 - Add a nice background */
 body {
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background-color: #0099bf;
 }
 
 /* Step 2 - Add a nice card style */
 .card {
-    background-color: azure;
+    border:solid 2px black;
+    width: 80px;
+    height: 100px;
+    display: flex;
+    font-size: 60px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+    border-radius: 8px;
+    margin: 10px;
+    
+}
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Step 3 - Add a nice hover effect */
 .card:hover {
+    border: solid 3px rgb(0, 68, 255);
     transform: scale(1.5);
+    transition: 0.3s;
+    background-color: #fff;
+}
+
+.card:active{
+    color: black;
 }
 
 /* Step 4 (+4 points) - Write a style for a flipped card */
-.flipped {
-    transform: rotateY(180deg);
+.card.flipped {
+    opacity: 0;
+    transition : 0.5s;
 }
 
 /* Step 5 - Add a nice style to the message element */
 #message {
-    position: relative;
-    background: #03b886;
-    border-radius: .4em;
+    text-align: center;
+    font-size:5em;
+    color: #fff;
+    font-weight: bold;
 }
 
 /* Step 6 - Add 5 more style changes... */
 /* 1) */
+#score{
+    font-size:2em;
+    text-align: center;
+    color: #eee;
+}
+/* 2) */
 button {
     background: transparent;
     border: 0;
@@ -34,11 +67,7 @@ button {
     cursor: pointer;
     outline: 0;
     -webkit-appearance: none;
-  }
-/* 2) */
-button {
     display: inline-block;
-    position: relative;
     padding: 20px 38px;
     top: 0;
     font-size: 30px;
@@ -85,5 +114,5 @@ button {
     border-bottom-color: #03b886; 
     border-top: 0; 
     margin-left: -23px; 
-    margin-top: -23px; }
+    margin-top: -23px; 
 }
